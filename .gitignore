@@ -151,3 +151,4 @@ error.log
 TC/
 #################
 drivers/input/sensors/smi130/modules.order
+boot.img
