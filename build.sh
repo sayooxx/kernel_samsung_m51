@@ -10,8 +10,8 @@ CURRENT_BUILD_USER=$(whoami)
 
 # 
 if [[ ${CURRENT_BUILD_USER} == "neel" ]]; then
-    export KBUILD_BUILD_USER=Neel0210
-    export KBUILD_BUILD_HOST=Hell
+    export KBUILD_BUILD_USER=SAYOOXX
+    export KBUILD_BUILD_HOST=Test
 else
     export KBUILD_BUILD_USER=BuildBot
     export KBUILD_BUILD_HOST=KangHub
