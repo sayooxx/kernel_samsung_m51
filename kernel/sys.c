@@ -73,9 +73,6 @@
 #include <asm/io.h>
 #include <asm/unistd.h>
 
-#ifdef CONFIG_SECURITY_DEFEX
-#include <linux/defex.h>
-#endif
 
 #ifndef SET_UNALIGN_CTL
 # define SET_UNALIGN_CTL(a, b)	(-EINVAL)
@@ -779,10 +776,6 @@ SYSCALL_DEFINE1(setfsuid, uid_t, uid)
 	if (!uid_valid(kuid))
 		return old_fsuid;
 
-#ifdef CONFIG_SECURITY_DEFEX
-	if (task_defex_enforce(current, NULL, -__NR_setfsuid))
-		return old_fsuid;
-#endif
 
 	new = prepare_creds();
 	if (!new)
@@ -823,10 +816,6 @@ SYSCALL_DEFINE1(setfsgid, gid_t, gid)
 	if (!gid_valid(kgid))
 		return old_fsgid;
 
-#ifdef CONFIG_SECURITY_DEFEX
-	if (task_defex_enforce(current, NULL, -__NR_setfsgid))
-		return old_fsgid;
-#endif
 
 	new = prepare_creds();
 	if (!new)
